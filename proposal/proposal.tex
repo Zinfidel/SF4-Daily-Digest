@@ -1,0 +1,57 @@
+\documentclass[10pt,letterpaper,final]{article}
+\usepackage[margin=1in]{geometry}       % 1" margins all-around
+\usepackage[parfill]{parskip}           % Put blank lines between paragraphs instead of indenting
+\usepackage[english]{babel}             % English hypenation
+
+% Encoding packages
+\usepackage[utf8]{inputenc}             % Allow UTF-8 source code
+\usepackage{fourier}                    % Use the Adobe Utopia font
+\usepackage[T1]{fontenc}                % Allow use of T1 (8-bit, 256 glyph) fonts
+
+% Math packages
+\usepackage{amsmath,amsfonts,amssymb}   % Math typesetting
+
+% Image packages
+\usepackage{graphicx}                   % For loading external images.
+\usepackage{epstopdf}                   % Import .EPS files.
+
+% Top matter
+\title{Application Proposal (First Draft)}
+\author{Zach Friedland}
+\date{February 2nd, 2015}
+
+\begin{document}
+\maketitle
+
+\section*{App Name: Street Fighter Daily Digest}
+Street Fighter is the name of a video game series by Capcom that this app will be based around. The ``daily digest'' part is referring to the fact that the app delivers daily-refreshed content to the user to consume.
+
+I think this name kind of sucks; it's too verbose. I will hopefully come up with something clever in the future.
+
+\section*{App Store Description}
+Get Ultra Street Fighter IV matches delivered to your phone daily! Select characters you are interested in, and the app will automatically update a widget with match videos involving those characters, direct from YouTube. Bypass typing in the same search strings and applying the same filters whenever you're in the mood for some matches and enjoy a convenient widget interface instead!
+
+\begin{itemize}
+  \item Videos delivered to a widget for one of your screens. No need to open an app!
+  \item Choose one or many characters. Switch between characters easily in the widget.
+  \item Enjoy decorated results - see character icons for every character involved in a video.
+\end{itemize}
+
+\section*{Features}
+\textbf{YouTube Queries:} The primary, core feature of this app is automated YouTube queries. This will need to be done either through the YouTube API, or through automated HTTP queries. I would prefer to do this through an API, but if the API does not support this, then HTTP queries are a fallback I know will work. The queries will take the from of pre-formatted strings that yield good results for returning match results. Perhaps there will be one universal query string, or multiple that can be run serially.
+
+\textbf{Language Processing:} A small amount of simple language processing will be necessary in order to do the ``decoration'' described in the app description. This decoration amounts to placing icons near the title of the video based on the names of characters that appear in the title of the video.
+
+\textbf{Widget Interface:} This app needs to be implemented as a widget for it to be convenient enough to use. The actual app will be used as a settings / customization menu.
+
+\textbf{Custom Controls:} A ``Sliding Icon Button Bar'' interface will need to be implemented for the character selection bar above the results list. A custom list view that displays icons, a youtube preview picture, as well as text will also need to be implemented for the search results area.
+
+\textbf{Artwork:} Character icons will need to be ripped directly from the game. Luckily these images are widely dispersed over the internet, so only some minor editing will be required (hopefully).
+
+\pagebreak
+\section*{Icon}
+
+\centerline{\includegraphics[scale=0.5]{icon.png}}
+
+Basically just the USF4 logo placed on top of a YouTube play icon.
+\end{document}
