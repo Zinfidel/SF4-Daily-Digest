@@ -16,9 +16,9 @@
 \usepackage{epstopdf}                   % Import .EPS files.
 
 % Top matter
-\title{Application Proposal (First Draft)}
+\title{Application Specification}
 \author{Zach Friedland}
-\date{February 2nd, 2015}
+\date{March 17th, 2015}
 
 \begin{document}
 \maketitle
@@ -29,11 +29,10 @@ Street Fighter is the name of a video game series by Capcom that this app will b
 I think this name kind of sucks; it's too verbose. I will hopefully come up with something clever in the future.
 
 \section*{App Store Description}
-Get Ultra Street Fighter IV matches delivered to your phone daily! Select characters you are interested in, and the app will automatically update a widget with match videos involving those characters, direct from YouTube. Bypass typing in the same search strings and applying the same filters whenever you're in the mood for some matches and enjoy a convenient widget interface instead!
+Get Ultra Street Fighter IV matches delivered to your phone daily! Select characters you are interested in, and the app will automatically update its list with match videos involving those characters, direct from YouTube. Bypass typing in the same search strings and applying the same filters whenever you're in the mood for some matches and enjoy a convenient, straight-to-the-point interface instead!
 
 \begin{itemize}
-  \item Videos delivered to a widget for one of your screens. No need to open an app!
-  \item Choose one or many characters. Switch between characters easily in the widget.
+  \item Choose one or many characters. Switch between characters easily in the app.
   \item Enjoy decorated results - see character icons for every character involved in a video.
 \end{itemize}
 
@@ -42,9 +41,9 @@ Get Ultra Street Fighter IV matches delivered to your phone daily! Select charac
 
 \textbf{Language Processing:} A small amount of simple language processing will be necessary in order to do the ``decoration'' described in the app description. This decoration amounts to placing icons near the title of the video based on the names of characters that appear in the title of the video.
 
-\textbf{Widget Interface:} This app needs to be implemented as a widget for it to be convenient enough to use. The actual app will be used as a settings / customization menu.
+\textbf{Simple Interface:} Given that this app is primarily for convenience, the interface needs to be designed to be simple and very easy to use. Any complication at all will make just going to YouTube to search more and more appealing.
 
-\textbf{Custom Controls:} A ``Sliding Icon Button Bar'' interface will need to be implemented for the character selection bar above the results list. A custom list view that displays icons, a youtube preview picture, as well as text will also need to be implemented for the search results area.
+\textbf{Custom Controls:} A ``Sliding Icon Button Bar'' interface will need to be implemented for the character selection bar above the results list. A custom list view that displays icons, a Youtube preview picture, as well as text will also need to be implemented for the search results area.
 
 \textbf{Artwork:} Character icons will need to be ripped directly from the game. Luckily these images are widely dispersed over the internet, so only some minor editing will be required (hopefully).
 
