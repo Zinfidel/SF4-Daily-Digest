@@ -10,8 +10,18 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // TODO: DEBUGGING CRAP
+        Exception ex = null;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            Character.LoadCharacters(getApplication().getResources());
+        } catch (Exception e) {
+            //TODO: Actual handling
+            e.printStackTrace();
+            System.exit(-1);
+        }
     }
 
 

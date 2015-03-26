@@ -1,4 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
-</PreferenceScreen>
+    <character id="abel">
+        <name>Abel</name>
+        <search>
+            <string>abel</string>
+            <string>AB</string>
+        </search>
+    </character>
+
+    <character id="akuma">
+        <name>Akuma</name>
+        <name_jp>Gouki</name_jp>
+        <search>
+            <string>akuma</string>
+            <string>AK</string>
+        </search>
+        <search_jp>
+            <string>gouki</string>
+            <string>GO</string>
+        </search_jp>
+    </character>
+
+    <character id="chunli">
+        <name>Chun-Li</name>
+        <search>
+            <string>chun</string>
+            <string>chunli</string>
+            <string>CH</string>
+        </search>
+    </character>
+
+    <character id="dhalsim">
+        <name>Dhalsim</name>
+        <search>
+            <string>dhalsim</string>
+            <string>DH</string>
+        </search>
+    </character>
+
+    <character id="vega">
+        <name>Vega</name>
+        <name_jp>Balrog</name_jp>
+        <search>
+            <string>vega</string>
+            <string>VE</string>
+            <string>claw</string>
+        </search>
+        <search_jp>
+            <string>balrog</string>
+            <string>BA</string>
+            <string>claw</string>
+        </search_jp>
+    </character>
+
+    <character id="viper">
+        <name>C. Viper</name>
+        <search>
+            <string>viper</string>
+            <string>VI</string>
+        </search>
+    </character>
+
+</resources>

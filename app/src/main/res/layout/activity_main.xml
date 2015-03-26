@@ -5,25 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <HorizontalScrollView
-    android:layout_width="match_parent"
-    android:layout_height="72dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <include layout="@layout/button_character"/>
-            <include layout="@layout/button_character"/>
-            <include layout="@layout/button_character"/>
-            <include layout="@layout/button_character"/>
-            <include layout="@layout/button_character"/>
-            <include layout="@layout/button_character"/>
-            <include layout="@layout/button_character"/>
-            <include layout="@layout/button_character"/>
-
-        </LinearLayout>
-
-    </HorizontalScrollView>
+    <com.github.zinfidel.sf4dailydigest.ButtonBarView
+        android:layout_width="match_parent"
+        android:layout_height="72dp"/>
 
 </LinearLayout>

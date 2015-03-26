@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<HorizontalScrollView-->
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="72dp">-->
+    <!-- TODO: These are set at a level higher? -->
+
+    <LinearLayout
+        android:id="@+id/buttons_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <!--<include layout="@layout/button_character"/>-->
+        <!--<include layout="@layout/button_character"/>-->
+        <!--<include layout="@layout/button_character"/>-->
+        <!--<include layout="@layout/button_character"/>-->
+        <!--<include layout="@layout/button_character"/>-->
+        <!--<include layout="@layout/button_character"/>-->
+        <!--<include layout="@layout/button_character"/>-->
+        <!--<include layout="@layout/button_character"/>-->
+
+    </LinearLayout>
+
+</merge>
+<!--</HorizontalScrollView>-->
