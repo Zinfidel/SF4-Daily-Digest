@@ -8,18 +8,8 @@
     <LinearLayout
         android:id="@+id/buttons_container"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
-        <!--<include layout="@layout/button_character"/>-->
-        <!--<include layout="@layout/button_character"/>-->
-        <!--<include layout="@layout/button_character"/>-->
-        <!--<include layout="@layout/button_character"/>-->
-        <!--<include layout="@layout/button_character"/>-->
-        <!--<include layout="@layout/button_character"/>-->
-        <!--<include layout="@layout/button_character"/>-->
-        <!--<include layout="@layout/button_character"/>-->
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@android:color/darker_gray"/>
 
 </merge>
-<!--</HorizontalScrollView>-->

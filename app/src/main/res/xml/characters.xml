@@ -9,17 +9,55 @@
         </search>
     </character>
 
+    <character id="adon">
+        <name>Adon</name>
+        <search>
+            <string>adon</string>
+            <string>AD</string>
+        </search>
+    </character>
+
     <character id="akuma">
         <name>Akuma</name>
-        <name_jp>Gouki</name_jp>
         <search>
             <string>akuma</string>
+            <string>gouki</string>
             <string>AK</string>
         </search>
-        <search_jp>
-            <string>gouki</string>
-            <string>GO</string>
-        </search_jp>
+    </character>
+
+    <character id="balrog">
+        <name>Balrog</name>
+        <search>
+            <string>balrog</string>
+            <string>boxer</string>
+            <string>BA</string>
+        </search>
+    </character>
+
+    <character id="bison">
+        <name>M. Bison</name>
+        <search>
+            <string>bison</string>
+            <string>dictator</string>
+            <string>BI</string>
+        </search>
+    </character>
+
+    <character id="blanka">
+        <name>Blanka</name>
+        <search>
+            <string>blanka</string>
+            <string>BL</string>
+        </search>
+    </character>
+
+    <character id="cammy">
+        <name>Cammy</name>
+        <search>
+            <string>cammy</string>
+            <string>CA</string>
+        </search>
     </character>
 
     <character id="chunli">
@@ -31,6 +69,39 @@
         </search>
     </character>
 
+    <character id="cody">
+        <name>Cody</name>
+        <search>
+            <string>cody</string>
+            <string>CO</string>
+        </search>
+    </character>
+
+    <character id="dan">
+        <name>Dan</name>
+        <search>
+            <string>dan</string>
+            <string>DA</string>
+        </search>
+    </character>
+
+    <character id="decapre">
+        <name>decapre</name>
+        <search>
+            <string>decapre</string>
+            <string>DE</string>
+        </search>
+    </character>
+
+    <character id="deejay">
+        <name>Dee Jay</name>
+        <search>
+            <string>dee jay</string>
+            <string>deejay</string>
+            <string>DJ</string>
+        </search>
+    </character>
+
     <character id="dhalsim">
         <name>Dhalsim</name>
         <search>
@@ -39,19 +110,224 @@
         </search>
     </character>
 
+    <character id="dudley">
+        <name>Dudley</name>
+        <search>
+            <string>dudley</string>
+            <string>DU</string>
+        </search>
+    </character>
+
+    <character id="elena">
+        <name>Elena</name>
+        <search>
+            <string>elena</string>
+        </search>
+    </character>
+
+    <character id="elfuerte">
+        <name>El Fuerte</name>
+        <search>
+            <string>elfuerte</string>
+            <string>el fuerte</string>
+            <string>elf</string>
+            <string>EL</string>
+        </search>
+    </character>
+
+    <character id="evilryu">
+        <name>Evil Ryu</name>
+        <search>
+            <string>evil ryu</string>
+            <string>e ryu</string>
+            <string>ER</string>
+        </search>
+    </character>
+
+    <character id="feilong">
+        <name>Fei Long</name>
+        <search>
+            <string>fei long</string>
+            <string>fei</string>
+            <string>FL</string>
+        </search>
+    </character>
+
+    <character id="gen">
+        <name>Gen</name>
+        <search>
+            <string>gen</string>
+            <string>GE</string>
+        </search>
+    </character>
+
+    <character id="gouken">
+        <name>Gouken</name>
+        <search>
+            <string>gouken</string>
+            <string>GO</string>
+        </search>
+    </character>
+
+    <character id="guile">
+        <name>Guile</name>
+        <search>
+            <string>guile</string>
+            <string>GU</string>
+        </search>
+    </character>
+
+    <character id="guy">
+        <name>Guy</name>
+        <search>
+            <string>guy</string>
+            <string>GY</string>
+        </search>
+    </character>
+
+    <character id="hakan">
+        <name>Hakan</name>
+        <search>
+            <string>hakan</string>
+        </search>
+    </character>
+
+    <character id="honda">
+        <name>E. Honda</name>
+        <search>
+            <string>honda</string>
+            <string>HO</string>
+        </search>
+    </character>
+
+    <character id="hugo">
+        <name>Hugo</name>
+        <search>
+            <string>hugo</string>
+            <string>HU</string>
+        </search>
+    </character>
+
+    <character id="ibuki">
+        <name>Ibuki</name>
+        <search>
+            <string>ibuki</string>
+            <string>IB</string>
+        </search>
+    </character>
+
+    <character id="juri">
+        <name>Juri</name>
+        <search>
+            <string>juri</string>
+            <string>JU</string>
+        </search>
+    </character>
+
+    <character id="ken">
+        <name>Ken</name>
+        <search>
+            <string>ken</string>
+            <string>KE</string>
+        </search>
+    </character>
+
+    <character id="makoto">
+        <name>Makoto</name>
+        <search>
+            <string>makoto</string>
+            <string>MA</string>
+        </search>
+    </character>
+
+    <character id="oni">
+        <name>Oni</name>
+        <search>
+            <string>oni</string>
+            <string>ON</string>
+        </search>
+    </character>
+
+    <character id="poison">
+        <name>Poison</name>
+        <search>
+            <string>poison</string>
+            <string>PO</string>
+        </search>
+    </character>
+
+    <character id="rolento">
+        <name>Rolento</name>
+        <search>
+            <string>rolento</string>
+        </search>
+    </character>
+
+    <character id="rose">
+        <name>Rose</name>
+        <search>
+            <string>rose</string>
+            <string>RO</string>
+        </search>
+    </character>
+
+    <character id="rufus">
+        <name>Rufus</name>
+        <search>
+            <string>rufus</string>
+            <string>RU</string>
+        </search>
+    </character>
+
+    <character id="ryu">
+        <name>Ryu</name>
+        <search>
+            <string>ryu</string>
+            <string>RY</string>
+        </search>
+    </character>
+
+    <character id="sagat">
+        <name>Sagat</name>
+        <search>
+            <string>sagat</string>
+            <string>SA</string>
+        </search>
+    </character>
+
+    <character id="sakura">
+        <name>Sakura</name>
+        <search>
+            <string>sakura</string>
+        </search>
+    </character>
+
+    <character id="seth">
+        <name>Seth</name>
+        <search>
+            <string>seth</string>
+            <string>SE</string>
+        </search>
+    </character>
+
+    <character id="thawk">
+        <name>T. Hawk</name>
+        <search>
+            <string>hawk</string>
+            <string>thawk</string>
+            <string>t hawk</string>
+            <string>TH</string>
+            <string>T.H</string>
+        </search>
+    </character>
+
     <character id="vega">
         <name>Vega</name>
-        <name_jp>Balrog</name_jp>
         <search>
             <string>vega</string>
+            <string>claw</string>
             <string>VE</string>
-            <string>claw</string>
         </search>
-        <search_jp>
-            <string>balrog</string>
-            <string>BA</string>
-            <string>claw</string>
-        </search_jp>
     </character>
 
     <character id="viper">
@@ -59,6 +335,30 @@
         <search>
             <string>viper</string>
             <string>VI</string>
+        </search>
+    </character>
+
+    <character id="yang">
+        <name>Yang</name>
+        <search>
+            <string>yang</string>
+            <string>YA</string>
+        </search>
+    </character>
+
+    <character id="yun">
+        <name>Yun</name>
+        <search>
+            <string>yun</string>
+            <string>YU</string>
+        </search>
+    </character>
+
+    <character id="zangief">
+        <name>Zangief</name>
+        <search>
+            <string>zangief</string>
+            <string>ZA</string>
         </search>
     </character>
 

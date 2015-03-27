@@ -35,13 +35,12 @@ public class ButtonBarView extends HorizontalScrollView {
 
         LinearLayout buttons_container = (LinearLayout) findViewById(R.id.buttons_container);
 
-        //TODO: Make map that maps strings to R ints instead of reflection to get file names.
-        int[] res = new int[] {R.drawable.abel, R.drawable.chunli, R.drawable.dhalsim};
-        for (int id : res) {
+        // TODO: MAKE THIS BASED ON PREFERENCES
+        for (String name : Character.defaultCharList) {
             ImageButton cb = (ImageButton)
                     inflater.inflate(R.layout.button_character, buttons_container, false);
 
-            cb.setImageResource(id);
+            cb.setImageResource(Character.get(name).icon);
             buttons_container.addView(cb);
         }
     }
