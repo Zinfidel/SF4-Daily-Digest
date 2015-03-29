@@ -22,6 +22,15 @@ public class MainActivity extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButtonBarView bar = (ButtonBarView) findViewById(R.id.button_bar);
+        bar.setOnCharacterChangedListener(new ButtonBarView.CharacterChangedListener() {
+            @Override
+            public void onCharacterChanged(Character c) {
+                // TODO: Actual handler
+                System.out.println(c.name);
+            }
+        });
     }
 
 
@@ -46,4 +55,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
