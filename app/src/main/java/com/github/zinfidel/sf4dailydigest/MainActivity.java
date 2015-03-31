@@ -4,7 +4,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import org.apache.commons.io.IOUtils;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -31,6 +39,31 @@ public class MainActivity extends ActionBarActivity {
                 System.out.println(c.name);
             }
         });
+
+        JSONArray test = getTestJSON();
+        ListView lv = (ListView) findViewById(R.id.list_view);
+        lv.setAdapter(new CharListViewAdapter(test));
+    }
+
+    //TODO: JSON DEBUGGING TEST CRAP
+    private JSONArray getTestJSON() {
+        String content = null;
+        InputStream file = getResources().openRawResource(R.raw.test);
+        try {
+            content = IOUtils.toString(file);
+        } catch (IOException e) {
+            System.out.println("Error loading JSON file.");
+        }
+
+        JSONArray test = null;
+        try  {
+            JSONObject root = new JSONObject(content);
+            test = root.getJSONArray("items");
+        } catch (JSONException e) {
+            System.out.println("Error parsing JSON file.");
+        }
+
+        return test;
     }
 
 

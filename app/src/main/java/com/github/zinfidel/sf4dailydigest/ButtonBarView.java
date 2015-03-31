@@ -5,15 +5,13 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import java.util.EventListener;
 
 
-/**
- * TODO: document your custom view class.
- */
+/** A horizontal bar populated by CharacterImageButtons. The buttons are generated via the
+ * characters.xml file and a preference list. */
 public class ButtonBarView extends HorizontalScrollView {
 
     /** Currently selected character. */
