@@ -1,9 +1,7 @@
 package com.github.zinfidel.sf4dailydigest;
 
 import android.app.Activity;
-import android.app.SearchManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -15,33 +13,25 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+
 
 public class CharListViewAdapter extends BaseAdapter {
 
-    private JSONArray items;
+    private List<YouTubeConnector.VideoItem> items;
 
-    public CharListViewAdapter(JSONArray items) {
+    public CharListViewAdapter(List<YouTubeConnector.VideoItem> items) {
         this.items = items;
     }
 
     @Override
     public int getCount() {
-        return items.length();
+        return items.size();
     }
 
     @Override
     public Object getItem(int position) {
-        JSONObject item = null;
-        try {
-            item = items.getJSONObject(position);
-        } catch (JSONException ex) {
-            System.exit(-1);
-        }
-
-        return item;
+        return items.get(position);
     }
 
     @Override
@@ -53,12 +43,7 @@ public class CharListViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         Context context = parent.getContext();
-        JSONObject item = null;
-        try {
-            item = items.getJSONObject(position);
-        } catch (JSONException ex) {
-            System.exit(-1);
-        }
+        YouTubeConnector.VideoItem item = items.get(position);
 
         // If convertView is not null, then it means we can reuse it to display this item and we
         // don't need to create a new view. Otherwise inflate a new video_listitem.
@@ -74,7 +59,6 @@ public class CharListViewAdapter extends BaseAdapter {
         // Populate the thumbnail asynchronously using the Picasso library. The placeholder image
         // should provide the correct relative layout size for the listview view to use.
         ImageView img = (ImageView) listItem.findViewById(R.id.listitem_thumbnail);
-
         // TODO: select correct resolution for screen size.
 //        Picasso.with(context).load(getThumbURL(position)).into(img);
         Picasso.with(context)
@@ -85,10 +69,10 @@ public class CharListViewAdapter extends BaseAdapter {
 
         // Populate the textview with the video's title.
         TextView tv = (TextView) listItem.findViewById(R.id.listitem_title);
-        tv.setText(getTitle(position));
+        tv.setText(item.title);
 
         // Set the onclick listener.
-        final String id = getId(position);
+        final String id = item.id;
         listItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,52 +86,5 @@ public class CharListViewAdapter extends BaseAdapter {
         });
 
         return listItem;
-    }
-
-    // TODO: DEBUG DELETE THIS - HELPER FUNC
-    private String getThumbURL(int position) {
-        String url = null;
-        try {
-            JSONObject item = items.getJSONObject(position);
-            JSONObject snippet = item.getJSONObject("snippet");
-            JSONObject thumbs = snippet.getJSONObject("thumbnails");
-            JSONObject def = thumbs.getJSONObject("default");
-            url = def.getString("url");
-
-        } catch (JSONException ex) {
-            System.exit(-1);
-        }
-
-        return url;
-    }
-
-    // TODO: DEBUG DELETE THIS - HELPER FUNC
-    private String getId(int position) {
-        String vidId = null;
-        try {
-            JSONObject item = items.getJSONObject(position);
-            JSONObject id = item.getJSONObject("id");
-            vidId = id.getString("videoId");
-
-        } catch (JSONException ex) {
-            System.exit(-1);
-        }
-
-        return vidId;
-    }
-
-    // TODO: DEBUG DELETE THIS - HELPER FUNC
-    private String getTitle(int position) {
-        String title = null;
-        try {
-            JSONObject item = items.getJSONObject(position);
-            JSONObject snippet = item.getJSONObject("snippet");
-            title = snippet.getString("title");
-
-        } catch (JSONException ex) {
-            System.exit(-1);
-        }
-
-        return title;
     }
 }

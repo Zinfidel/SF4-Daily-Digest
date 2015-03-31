@@ -1,5 +1,7 @@
 package com.github.zinfidel.sf4dailydigest;
 
+import android.content.Context;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,9 +14,15 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+
 import org.apache.commons.io.IOUtils;
 
 public class MainActivity extends ActionBarActivity {
+
+    private Handler handler;
+    private ButtonBarView bar;
+    private ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +39,41 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ButtonBarView bar = (ButtonBarView) findViewById(R.id.button_bar);
+        handler = new Handler();
+        bar = (ButtonBarView) findViewById(R.id.button_bar);
+        list = (ListView) findViewById(R.id.list_view);
+
+        // Attach a handler to the button bar character changed event that automatically searches
+        // YouTube and updates the ListView adapter when it gets results.
         bar.setOnCharacterChangedListener(new ButtonBarView.CharacterChangedListener() {
             @Override
             public void onCharacterChanged(Character c) {
-                // TODO: Actual handler
-                System.out.println(c.name);
+                // Send the first search term in the characters search field.
+                Character character = bar.getSelectedChar();
+                searchYouTube(character.search.get(0));
             }
         });
+    }
 
-        JSONArray test = getTestJSON();
-        ListView lv = (ListView) findViewById(R.id.list_view);
-        lv.setAdapter(new CharListViewAdapter(test));
+    /**
+     * Creates a thread and executes a YouTube search for the given keywords. The GUI-thread
+     * handler receives a post to update the listview when the search returns.
+     * @param keywords The keywords to search (character search term).
+     */
+    private void searchYouTube(final String keywords) {
+        new Thread() {
+            public void run() {
+                Context context = MainActivity.this.getApplicationContext();
+                YouTubeConnector yc = new YouTubeConnector(context);
+                final List<YouTubeConnector.VideoItem> results = yc.search(keywords);
+
+                handler.post(new Runnable() {
+                    public void run() {
+                        list.setAdapter(new CharListViewAdapter(results));
+                    }
+                });
+            }
+        }.start();
     }
 
     //TODO: JSON DEBUGGING TEST CRAP
