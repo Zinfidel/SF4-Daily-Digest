@@ -2,7 +2,29 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Settings theme. Required to avoid crash! -->
+    <!--<style name="SettingsTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+        <!--<item name="android:windowNoTitle">false</item>-->
+        <!--<item name="android:windowActionBar">true</item>-->
+        <!--<item name="android:actionBarStyle">@style/ActionBarTheme</item>-->
+    <!--</style>-->
+
+    <!-- Style for title text fields on video items. -->
+    <style name="VideoTitle" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Style for sub text fields on video items. -->
+    <style name="VideoSubtitle" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
     </style>
 
 </resources>

@@ -14,14 +14,10 @@ import org.xmlpull.v1.XmlPullParserException;
 public class Character {
 
     private static final HashMap<String, Character> nameMap = new HashMap<>();
-    public static final List<String> defaultCharList = new ArrayList<>();
+    public static final List<String> allChars = new ArrayList<>();
 
     public final String id, name;
     public final int icon;
-    // TODO: Search terms probably need to be in a giant, inclusive map that map the terms to the
-    // char name. Regexes for common patterns can be used to identify the search terms in a string,
-    // eventually (possibly) falling into language processing for hard-to-process strings. Maybe
-    // something like Apache Lucene.
     public final List<String> search;
 
 
@@ -98,7 +94,7 @@ public class Character {
 
             Character character = new Character(id, name, icon, search);
             nameMap.put(id, character);
-            defaultCharList.add(character.id);
+            allChars.add(character.id);
         }
     }
 

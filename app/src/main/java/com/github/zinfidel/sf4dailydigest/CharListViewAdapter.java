@@ -60,16 +60,23 @@ public class CharListViewAdapter extends BaseAdapter {
         // should provide the correct relative layout size for the listview view to use.
         ImageView img = (ImageView) listItem.findViewById(R.id.listitem_thumbnail);
         // TODO: select correct resolution for screen size.
-//        Picasso.with(context).load(getThumbURL(position)).into(img);
         Picasso.with(context)
-                .load(R.drawable.test_thumbnail)
+                .load(item.thumbUrl)
                 .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder)
                 .into(img);
-//        Picasso.with(context).load("http://i.imgur.com/UnYXFSM.png").into(img);
 
-        // Populate the textview with the video's title.
-        TextView tv = (TextView) listItem.findViewById(R.id.listitem_title);
-        tv.setText(item.title);
+        // Populate the title.
+        TextView title = (TextView) listItem.findViewById(R.id.listitem_title);
+        title.setText(item.title);
+
+        // Populate the channel ID.
+        TextView channel = (TextView) listItem.findViewById(R.id.listitem_channel);
+        channel.setText(String.format("by %s", item.channel));
+
+        // Populate the "hours ago" timestamp.
+        TextView published = (TextView) listItem.findViewById(R.id.listitem_published);
+        published.setText(String.format("%d hours ago", item.published));
 
         // Set the onclick listener.
         final String id = item.id;
