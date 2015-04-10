@@ -17,21 +17,17 @@ public class MainActivity extends ActionBarActivity {
     private Handler handler;
     private ButtonBarView bar;
     private ListView list;
-    public static boolean prefsChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Only load characters (static class) if this is truly an initial creation.
-        // Otherwise, two copies can be generated if a bundled instance is being restored.
-        if (savedInstanceState == null) {
-            try {
-                Character.LoadCharacters(getApplication().getResources());
-            } catch (Exception e) {
-                //TODO: Actual handling
-                System.exit(-1);
-            }
+        // Load the character objects. This method can be called multiple times safely.
+        try {
+            Character.LoadCharacters(getApplication().getResources());
+        } catch (Exception e) {
+            //TODO: Actual handling
+            System.exit(-1);
         }
 
         setContentView(R.layout.activity_main);
@@ -53,13 +49,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        if (prefsChanged) {
-            prefsChanged = false;
-            ButtonBarView bb = (ButtonBarView) findViewById(R.id.button_bar);
-            bb.PopulateBar();
-        }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // The only activity it could be is settings. Regardless of the return code, rebuild
+        // the button bar to ensure it is synced with the user settings.
+        ButtonBarView bb = (ButtonBarView) findViewById(R.id.button_bar);
+        bb.PopulateBar();
     }
 
     @Override
@@ -76,10 +70,9 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 0);
             return true;
         }
 

@@ -31,13 +31,6 @@ public class SettingsActivity extends ActionBarActivity {
                 new SettingsFragment()).commit();
     }
 
-    // TODO: DEBUGGING REMOVE ME IMMEDIATELY
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MainActivity.prefsChanged = true;
-    }
-
     /** Returns a mapping of character ids to preference keys.*/
     public static Map<String, String> getCharPrefMap() {
         // Initialize the singleton map if it doesn't exist yet.

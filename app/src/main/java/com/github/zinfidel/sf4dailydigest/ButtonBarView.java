@@ -28,7 +28,7 @@ public class ButtonBarView extends ScrollView {
 
     /**
      * Stores all of the buttons so that they can be inserted and removed from the button bar
-     * easily. This is needed becaues preference changes will cause the entire
+     * easily. This is needed because preference changes will cause the entire
      */
     private Map<String, CharacterImageButton> charButtons = new HashMap<>();
 
@@ -56,40 +56,26 @@ public class ButtonBarView extends ScrollView {
      * @param context The activity context this bar belongs to.
      */
     private void init(Context context) {
-        charButtons = new HashMap<>();
         LayoutInflater inflater =
                 (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.view_buttonbar, this, true);
+
+        // Generate the character buttons. This method only ever creates the buttons once, and
+        // is safe to call multiple times.
+        generateCharButtons(context);
+
+        // Create the bar and add the buttons.
         LinearLayout buttonsContainer = (LinearLayout) findViewById(R.id.buttons_container);
+        PopulateBar();
 
-        // Create all of the character buttons and store them. We don't add them to the button
-        // bar yet because which ones are added is based on preferences.
-        for (String id : Character.allChars) {
-            CharacterImageButton cb = (CharacterImageButton)
-                    inflater.inflate(R.layout.button_character, buttonsContainer, false);
-
-            // Set the button's character, the icon (image), and the click event.
-            cb.character = Character.get(id);
-            cb.setImageResource(cb.character.icon);
-            cb.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Sets this button bar's character field to the field of the button clicked.
-                    CharacterImageButton cib = (CharacterImageButton) v;
-                    setSelectedChar(cib.character);
-                }
-            });
-
-            charButtons.put(id, cb);
-        }
-
+        // TODO: Clean up
         // Now add buttons to the bar based on preferences. Do so on the GUI thread!
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                PopulateBar();
-            }
-        });
+//        handler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                PopulateBar();
+//            }
+//        });
     }
 
     /**
@@ -99,6 +85,10 @@ public class ButtonBarView extends ScrollView {
     public void PopulateBar() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
         LinearLayout buttonsContainer = (LinearLayout) findViewById(R.id.buttons_container);
+
+        // If we are repopulating the bar after a settings change and the bar isn't being recreated,
+        // it might have buttons already. Just remove them if they exist and then re-add.
+        buttonsContainer.removeAllViews();
 
         // Add buttons that are enabled in preferences.
         for (String id : Character.allChars) {
@@ -119,6 +109,38 @@ public class ButtonBarView extends ScrollView {
 
         // Invalidate the view to ensure the GUI responds to the new set of buttons.
         invalidate();
+    }
+
+    /**
+     * Generates the char buttons and stores them in the charButtons map. This only generates the
+     * buttons once! If they already exist, they will not be regenerated. This makes this method
+     * safe to use in the onCreate() method of views which may be called multiple times.
+     * @param context The application context.
+     */
+    private void generateCharButtons(Context context) {
+        if (charButtons.isEmpty()) {
+            LayoutInflater inflater =
+                    (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            for (String id : Character.allChars) {
+                CharacterImageButton cb = (CharacterImageButton)
+                        inflater.inflate(R.layout.button_character, null);
+
+                // Set the button's character, the icon (image), and the click event.
+                cb.character = Character.get(id);
+                cb.setImageResource(cb.character.icon);
+                cb.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Sets this button bar's character field to the field of the button clicked.
+                        CharacterImageButton cib = (CharacterImageButton) v;
+                        setSelectedChar(cib.character);
+                    }
+                });
+
+                charButtons.put(id, cb);
+            }
+        }
     }
 
     /**

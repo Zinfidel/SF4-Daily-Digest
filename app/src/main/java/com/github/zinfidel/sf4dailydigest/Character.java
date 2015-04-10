@@ -41,15 +41,21 @@ public class Character {
 
     /**
      * Loads character data from characters.xml into this class' static data structures.
+     * This method is idempotent! It will only load the characters once into the static data
+     * structure. Further calls will return immediately. This makes this method safe to call in
+     * view's onCreate() methods, which may be called more than once.
+     *
      * @param res Application-level resources instance.
      * @throws IOException if characters.xml can't be opened.
      * @throws XmlPullParserException if the pull parser fails to read characters.xml.
      */
     public static void LoadCharacters(Resources res) throws IOException,
                                                             XmlPullParserException {
-        XmlResourceParser parser = res.getXml(R.xml.characters);
-        ParseCharacters(parser, res);
-        parser.close();
+        if (allChars.isEmpty()) {
+            XmlResourceParser parser = res.getXml(R.xml.characters);
+            ParseCharacters(parser, res);
+            parser.close();
+        }
     }
 
     /**

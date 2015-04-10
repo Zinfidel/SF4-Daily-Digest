@@ -9,14 +9,17 @@
     <com.github.zinfidel.sf4dailydigest.ButtonBarView
         android:id="@+id/button_bar"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="#222222"/>
 
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/no_videos_bg"
         android:paddingTop="@dimen/listview_spacing"
         android:paddingLeft="@dimen/listview_spacing"
+        android:paddingRight="@dimen/listview_spacing"
         android:dividerHeight="@dimen/listview_spacing"
         android:divider="@android:color/transparent"/>
 
