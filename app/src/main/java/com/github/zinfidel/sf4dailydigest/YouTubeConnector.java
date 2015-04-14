@@ -42,14 +42,12 @@ public class YouTubeConnector {
             "items(id/videoId,snippet(title,publishedAt,channelTitle,thumbnails/%s/url))";
     private static final String PREFIX = "USF4 ";
 
-    private final String thumbRes;
-    private final YouTube youTube;
     private YouTube.Search.List query;
 
     public YouTubeConnector(Context context) {
         apiKey = getKey(context);
-        thumbRes = getThumbRes(context);
-        youTube = new YouTube.Builder(new NetHttpTransport(), new JacksonFactory(), null)
+        String thumbRes = getThumbRes(context);
+        YouTube youTube = new YouTube.Builder(new NetHttpTransport(), new JacksonFactory(), null)
                 .setApplicationName(context.getResources().getString(R.string.app_name))
                 .build();
 

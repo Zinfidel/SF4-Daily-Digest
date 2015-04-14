@@ -8,4 +8,7 @@
     <string name="pref_all_chars_on">Turn On All Characters</string>
     <string name="pref_all_chars_off_toast">All Characters Turned Off.</string>
     <string name="pref_all_chars_on_toast">All Characters Turned On.</string>
+
+    <string name="status_searching">Searching for %1$s&#8230;</string>
+    <string name="status_done">Search results for %1$s.</string>
 </resources>

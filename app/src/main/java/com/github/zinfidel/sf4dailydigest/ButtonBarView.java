@@ -69,7 +69,7 @@ public class ButtonBarView extends ScrollView {
         PopulateBar();
 
         // TODO: Clean up
-        // Now add buttons to the bar based on preferences. Do so on the GUI thread!
+        // Now add buttons to the bar based on preference_char_select. Do so on the GUI thread!
 //        handler.post(new Runnable() {
 //            @Override
 //            public void run() {
@@ -79,7 +79,7 @@ public class ButtonBarView extends ScrollView {
     }
 
     /**
-     * Populates the button bar with buttons based on preferences.
+     * Populates the button bar with buttons based on preference_char_select.
      * WARNING: This MUST be called on the GUI thread!
      */
     public void PopulateBar() {
@@ -90,7 +90,7 @@ public class ButtonBarView extends ScrollView {
         // it might have buttons already. Just remove them if they exist and then re-add.
         buttonsContainer.removeAllViews();
 
-        // Add buttons that are enabled in preferences.
+        // Add buttons that are enabled in preference_char_select.
         for (String id : Character.allChars) {
             String key = SettingsActivity.getCharPrefMap().get(id);
             boolean isEnabled = sp.getBoolean(key, true);
